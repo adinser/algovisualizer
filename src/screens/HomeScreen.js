@@ -14,16 +14,11 @@ function HomeScreen(props) {
             },
         })
     }, []);
-
     return (
         <SafeAreaView style={{flex:1}}>
             <View style={styles.container}>
                 <Text> Select Algorithm Catagory below! </Text>
                 <ScrollView contentContainerStyle={styles.scrollcontainer}>
-                    <Text> Select Algorithm Catagory below! </Text>
-                    <Text> Select Algorithm Catagory below! </Text>
-                    <Text> Select Algorithm Catagory below! </Text>
-                    <Text> Select Algorithm Catagory below! </Text>
                     <TouchableOpacity onPress={()=>props.navigation.navigate("Sorting")}><Text>Sorting</Text></TouchableOpacity>
                 </ScrollView>
             </View>
