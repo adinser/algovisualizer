@@ -19,7 +19,7 @@ function HomeScreen(props) {
             <View style={styles.container}>
                 <Text> Select Algorithm Catagory below! </Text>
                 <ScrollView contentContainerStyle={styles.scrollcontainer}>
-                    <TouchableOpacity onPress={()=>props.navigation.navigate("Sorting")}><Text>Sorting</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={()=>props.navigation.navigate("Sort")}><Text>Sorting algortihms</Text></TouchableOpacity>
                 </ScrollView>
             </View>
         </SafeAreaView>

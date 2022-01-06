@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './src/screens/HomeScreen';
-import SortingScreen from './src/screens/SortingScreen';
+import SortScreen from './src/screens/SortScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,8 +26,8 @@ export default function App() {
           component={HomeScreen}
         />
         <Stack.Screen
-          name="Sorting"
-          component={SortingScreen}
+          name = "Sort"
+          component={SortScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
