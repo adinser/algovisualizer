@@ -37,7 +37,7 @@ function SortScreen(props) {
                 <View style={styles.numArrayContainer}>
                     {arrayBuilder}
                 </View>
-                <TouchableOpacity onPress={()=>setNums([])}>
+                <TouchableOpacity onPress={()=>setNums([])} disabled={busy}>
                     <Text> Your array is below, click here to clear the array </Text>
                 </TouchableOpacity>
                 <ArrayDisplay arr={nums}/>

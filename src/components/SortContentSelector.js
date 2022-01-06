@@ -4,6 +4,7 @@ import { View ,StyleSheet, Text,  TouchableOpacity  } from 'react-native';
 
 
 import SelectionSort from './SelectionSort';
+import InsertionSort from './InsertionSort';
 
 function SortContentSelector(props) {
     const [disp,setDisp]=useState(0);
@@ -13,6 +14,9 @@ function SortContentSelector(props) {
             <Text> Sort With </Text>
             <TouchableOpacity onPress={()=>{setDisp(1)}}>
                 <Text> Selection Sort </Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{setDisp(2)}}>
+                <Text> Insertion Sort </Text>
             </TouchableOpacity>
         </View>
     );
@@ -31,6 +35,8 @@ function SortContentSelector(props) {
                 return sortMenu();
             case 1:
                 return <SelectionSort arr={props.arr} reset={()=>setDisp(0)}/>;
+            case 2:
+                return <InsertionSort arr={props.arr} reset={()=>setDisp(0)}/>
             default:
                 return sortMenu();
         }
