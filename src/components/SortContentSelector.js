@@ -1,6 +1,7 @@
 
-import React, { useState,  } from 'react';
-import { View ,StyleSheet, Text,  TouchableOpacity } from 'react-native';
+import React, { useState, useEffect  } from 'react';
+import { View ,StyleSheet, Text,  TouchableOpacity  } from 'react-native';
+
 
 import SelectionSort from './SelectionSort';
 
@@ -15,17 +16,22 @@ function SortContentSelector(props) {
             </TouchableOpacity>
         </View>
     );
+    
+    useEffect(()=>{
+        if (disp===0){
+            props.setBusy(false)
+        } else {
+            props.setBusy(true)
+        }
+    },[disp])
 
     const contentSwitch = ()=>{
         switch(disp) {
             case 0:
-                props.setBusy(false);
                 return sortMenu();
             case 1:
-                props.setBusy(true);
                 return <SelectionSort arr={props.arr} reset={()=>setDisp(0)}/>;
             default:
-                props.setBusy(false);
                 return sortMenu();
         }
     }

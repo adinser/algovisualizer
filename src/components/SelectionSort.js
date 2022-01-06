@@ -74,7 +74,7 @@ function SelectionSort(props) {
             ])
         )
     );
-
+    
     Animated.sequence(animationSequence()).start();
 
     

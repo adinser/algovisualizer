@@ -12,6 +12,7 @@ function SortScreen(props) {
     const [nums,setNums] = useState([]);
     const [busy, setBusy] = useState(false);
 
+
     const arrayBuilder = [0,1,2,3,4,5,6,7,8,9].map((num)=>(
             <TouchableOpacity 
                 key={num} 
