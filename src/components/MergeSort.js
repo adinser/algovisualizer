@@ -176,67 +176,10 @@ function MergeSort(props) {
 
 
 
-/*
-    Animated.parallel(
-        props.arr.map(
-            (v,i)=>Animated.timing(vertAnimL1[i],
-                {toValue:-600,duration:interval,useNativeDriver:false})
-        )
-    ).start()
-    */
-
 
 
     Animated.sequence(mergeWrapper()).start();
     
-
-    
-  /*
-    const animGenerator = ()=>{
-        const animData = mergeWrapper().slice();
-        const seq = [[]];
-        let dMax = 0;
-        while (Array.isArray(animData) && animData.length){
-            let curr = animData.pop();
-            if (curr[0]>dMax){
-                dMax++;
-                seq.push([]);
-            }
-            seq[curr[0]].push(curr[1],curr[2]);
-        }
-        console.log(seq)
-
-        const animSeq = seq.map(
-            (data,index) => 
-                Animated.sequence([
-                    Animated.parallel(
-                        data.map(
-                            (vals,ind)=>(ind%2===0)?
-                                vals.map(
-                                    (v)=>Animated.timing(horizontalAnim[v],{toValue:-10,duration:interval,useNativeDriver:false})
-                                )
-                                :
-                                vals.map(
-                                    (v)=>Animated.timing(horizontalAnim[v],{toValue:10,duration:interval,useNativeDriver:false})
-                                )
-                        ).flat()
-                    ),
-                    Animated.parallel(
-                        data.map(
-                            (vals)=>
-                                vals.map(
-                                    (v)=>Animated.timing(vertAnim[v],{toValue:-10*index,duration:interval,useNativeDriver:false})
-                                )
-                        )
-                    )
-                ])
-        );
-
-        return animSeq;
-        
-    } 
-    Animated.sequence(animGenerator()).start();
-    */
     
     return (
         <View style={{width:'100%',alignItems:'center'}} >
