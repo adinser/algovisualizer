@@ -9,6 +9,10 @@ function InsertionSort(props) {
     const vertAnim = useRef(props.arr.map(()=> new Animated.Value(0))).current;
     const horizontalAnim = useRef(props.arr.map((num,i)=>new Animated.Value(i*viewSizing))).current;
 
+    const interval=(props.arr.length>20)?50:100;
+    const vertDist=1.1*props.ht;
+    
+    
     const insertions = ()=>{
         const numbers = props.arr.map((num,i)=>[num,i]);
         const insertionsArray = [];
@@ -44,7 +48,7 @@ function InsertionSort(props) {
             />
         )
         return(
-            <View style={styles.numArrayContainer}>
+            <View style={[styles.numArrayContainer,{height:props.ht,marginVertical:1.5*props.ht}]}>
                 {sortingArr}
             </View>
         );
@@ -53,10 +57,7 @@ function InsertionSort(props) {
 
     
 
-    const interval=(props.arr.length>20)?50:100;
-    const vertDist=75;
-
-    const animationSequence = ()=>insertions().map(
+    const animationSequence = Animated.sequence(insertions().map(
         (data,index)=>((Array.isArray(data[1])&&data[1].length)?
             Animated.sequence([
                 Animated.timing(vertAnim[data[0]], {toValue:vertDist,duration:interval, useNativeDriver:false}),
@@ -67,19 +68,18 @@ function InsertionSort(props) {
             ])
             :Animated.sequence([
                 Animated.timing(vertAnim[data[0]], {toValue:vertDist,duration:interval, useNativeDriver:false}),
-                Animated.delay(interval),
                 Animated.timing(vertAnim[data[0]], {toValue:0,duration:interval, useNativeDriver:false})
             ])
         )
-    );
+    ));
     
-    Animated.sequence(animationSequence()).start();
+    animationSequence.start();
 
     
     return (
         <View style={{width:'100%',alignItems:'center'}} >
+            <Text style={{transform:[{translateY:0.4*props.ht}]}}>Insertion Sort</Text>
             {arrAnimated()}
-            <TouchableOpacity onPress={props.reset}><Text>Reset</Text></TouchableOpacity>
         </View>
     );
     
@@ -93,7 +93,5 @@ const styles=StyleSheet.create({
     numArrayContainer: {
         flexDirection:"row",
         width:'80%',
-        height:50,
-        marginVertical:80,
     }
 });
