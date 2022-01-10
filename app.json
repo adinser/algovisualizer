@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "An application to help people learn how common algorithms work",
+    "githubUrl": "https://github.com/adinser/algovisualizer"
   }
 }

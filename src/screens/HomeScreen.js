@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React, {useLayoutEffect} from "react";
 import {  StyleSheet, Text, View, SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
 
@@ -20,6 +19,7 @@ function HomeScreen(props) {
                 <Text> Select Algorithm Catagory below! </Text>
                 <ScrollView contentContainerStyle={styles.scrollcontainer}>
                     <TouchableOpacity onPress={()=>props.navigation.navigate("Sort")}><Text>Sorting algortihms</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={()=>props.navigation.navigate("Search")}><Text>Search algortihms</Text></TouchableOpacity>
                 </ScrollView>
             </View>
         </SafeAreaView>

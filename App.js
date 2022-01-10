@@ -4,6 +4,7 @@ import {createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './src/screens/HomeScreen';
 import SortScreen from './src/screens/SortScreen';
+import SearchScreen from './src/screens/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,10 @@ export default function App() {
         <Stack.Screen
           name = "Sort"
           component={SortScreen}
+        />
+        <Stack.Screen
+          name="Search"
+          component={SearchScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
